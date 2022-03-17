@@ -1,0 +1,892 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{220E04C2-5843-4796-8984-EB57F024334A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Chubb.Tracker.TrackerReportingService</RootNamespace>
+    <AssemblyName>Chubb.Tracker.TrackerReportingService</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Chubb.Tracker.TrackerReportingService.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>
+    </CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>
+    </CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Chubb.Tracker.TrackerReportingService.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.9.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.9.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.5.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Unity.WebApi, Version=5.2.3.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.WebAPI.5.2.3\lib\net45\Unity.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="wnvhtmltopdf, Version=14.4.0.0, Culture=neutral, PublicKeyToken=b12703d35a33ff98, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\nausd-wweb0049\Tracker_Files\Tracker Modernization\Winnovative\HtmlToPdf\v14.4\wnvhtmltopdf.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="CustomDictionary.xml" />
+    <Content Include="Data\Database\TrackingReportingServiceEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TrackingReportingServiceEntities.Context.cs</LastGenOutput>
+      <DependentUpon>TrackingReportingServiceEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="Data\Database\TrackingReportingServiceEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TrackingReportingServiceEntities.cs</LastGenOutput>
+      <DependentUpon>TrackingReportingServiceEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="Global.asax" />
+    <Content Include="Images\ChubbLogo.png" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="App_Start\UserValidate.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Business\Implementation\TrackerReportingEnterpriseIntegrationBO.cs" />
+    <Compile Include="Business\Implementation\TrackerReportingBO.cs" />
+    <Compile Include="Business\Interfaces\ITrackerReportingEnterpriseIntegrationBO.cs" />
+    <Compile Include="Business\Interfaces\ITrackerReportingBO.cs" />
+    <Compile Include="Controllers\TrackerReportingBaseController.cs" />
+    <Compile Include="Controllers\TrackerReportingController.cs" />
+    <Compile Include="Data\Database\CRMActivityType.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\CRMCallType.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\CRMCompanyOwner.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\CRMContactType.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\CRMEventType.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\CRMMarketSegment.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\CRMStatusType.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\CRMUserType.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Customer.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Cust_CAB_Descriptions.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\EstPlacement.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Capacity.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Chubb_PolicyType.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_City.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_ClientProducts.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Client_Master.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Country.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Currency_code.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Dynamics_ChubbBusinessUnit.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Dynamics_ContactPreference.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Dynamics_Cornerstone.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Dynamics_IndustrySpecialization.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Dynamics_ProductSpecialization.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Dynamics_Role.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Dynamics_Subgroup.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Incumbent.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Industry.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Industry_Practice_LookUp_DropDown.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Interface_System.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_LinkedReports.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_logon.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_MktManager.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Month.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_PGroup.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_PP_ProducerProfileInfo.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_PP_ProductCompanyandUnits.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Private_Equity_Firms.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Product.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_ProgramType.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\forecaster_property.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Region.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_ServiceBranch.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_SIC_Lookup.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Status.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_SubmissionRouting_Constantfilters.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_SubmissionRouting_Schedule.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_SubmissionRouting_Varaiablefilters.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_TargetType.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_TClass.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_TPA.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_TProduct.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Tracker_Hierarchy.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_TscoreNew.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Type.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_UserSubGroup.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_UWBranch.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Forecaster_Year.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Insured_AccountType.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\producer.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\TrackerHelpFile.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\TrackingReportingServiceEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrackingReportingServiceEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\TrackingReportingServiceEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\TrackingReportingServiceEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrackingReportingServiceEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_AccountingMonth_ClosedDates_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_AccountMarketed_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_ACE2100BYLOB_RW13_EXST_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_AdvanceSort_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_ArchiveInsuredReport_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_BP_GetBrokerProducts_EXST_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_CarrierThreats_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_ClaimServices_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_ClaimsHandlings_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_CoreNonCoreCollection_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_CurrentAccountingYearMonth_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_DetailReport_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\usp_DNBHierarchySearch_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_DownloadFilter_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Usp_GenerateDetailListQuery_EXST_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Usp_GetACEindustry_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Usp_GetBrokerProfileSummary_reWrite_Exst_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetBrokerResult_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Usp_GetBrokerScorecard_reWrite_EXST_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Usp_GetCoreElements_EXST_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\usp_GetCountryID_Insured_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetCRMProducerGUID_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetCustomerFilter_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetCustomerGUID_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetCustomerProfileForLostAndDecComments_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetCustomerProfileForLostAndDeclined_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetCustomerProfileOwnerFilter_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetCustomerProfileSummary_p1r8_rw_EXST_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetCustomersProfileDetails_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetDeeplinkAppFiltersByID_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetDunsNumberFilter_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetDynamicsPipelines_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetForecastCustomerProfileVariation_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetFilterReportLoad_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetForecasterExcelWorkbookMapping_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetForecasterQuickExcelColumnMapping_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetForecastRegionTotal_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetForecastRegion_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetForecastSummaryTotal_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetForecastSummary_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetGrowthMixReport_EXST_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetHomeOfficeMarginreport_CURRENCY_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetHomeOfficeMarginreport_PERCENTAGE_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetImpediment_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\usp_GetInputScreenDropdownValues_Exst_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetInsuredClientLostACERecordsMapping_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Usp_GetInsuredCurrentInforceMapping_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetInsuredCurrentInforceSummaryDetailsComments_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetInsuredCurrentInforceSummaryDetails_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetInsuredGlancedetails_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetInsuredHistoricalForecast_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetInsuredInformation_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Usp_GetInsuredName_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetInsuredTargetSummaryDetailsComments_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetInsuredTargetSummaryDetails_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Usp_GetLoadEditProfileData_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Usp_GetLoadUserAccessDetails_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetLostReasonByStatus_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetMaximumForecastAmount_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetMCCFilter_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Usp_GetMultiNonCoreElements_EXST_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetNetScoreCardForecast_4C_SP_temp_Division_EXST_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetNetScoreCardForecast_4C_SP_temp_Region_EXST_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Usp_GetNonCoreElements_EXST_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetPasCodeFilter_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetPinnedReportsByID_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetPolicyTargetDetails_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetPortfolioClassFilter_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetPostMortermDetails_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetProducerBranchCRMGUID_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetProducerBranchFilter_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetProducerCRMGUID_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetProducerDetailsByCode_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetProducerFilter_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetProducerPassCodeInfoByAcountName_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetProducerProfileAtGlance_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetProducerProfileGoals_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetProducerProfileOwnerFilter_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetProducerRegionFilter_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetRecordNavigation_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetRelationshipManager_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetReportingProducerCRMGUID_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetScoreCardAmountPerDivision_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetScorecardNewBusinessByStatus_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetScorecardRenewalByStatus_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetSegmentFilter_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetSubSegmentFilter_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetSuccessfulProducer_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetTargetDetails_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetTrackerQueue_EXST_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\Usp_GetUnderWriterFilter_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetUnitFilter_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetUnitSegmentDetailsByUserID_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetUWRegionByUWBranch_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetUWSummaryNewBusinessLostandDeclineDetails_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetUWSummaryPipelineDetails_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_GetVariationReport_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_Get_SubmissionRoutingScreenData_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_InsertInputDetails_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_InsertOrUpdateFilterDetails_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_InsuredDetailsByDBNumber_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_InsuredDNBSearch_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_InsuredReport_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_LossNotes_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_MajorAccountsHub_GetRecordDetails_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_MajorAccounts_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_Ownerbranch_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_ProducerkeyInfo_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_ProducerRecordThreats_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_ProducerReport_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_Relationships_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_RenewalStrategy_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_RiskEngineeringService_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_Save_SubmissionRouting_EXST_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_SEARCHPRODUCERGROUPS_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_StewardshipAccount_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_StewardshipCoverage_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_StewardshipLineOfBusiness_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_StewardshipRentention_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_Underwrittings_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_UWGoalsHitRatioDetails_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_UWGoalsHitRatio_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_UWGoalsQuoteRatioDetails_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_UWGoalsQuoteRatio_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_UWNewBusinessGoal_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_UWPipelineDetailsNewBusiness_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_UWPipelineDetailsRenewals_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_UWPipelineDetailsTargets_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_UWReporting_TravelGoals_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_UWSummaryAtGlance_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_UWSummaryNewBusinessTotal_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_UWSummaryNewBusiness_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_UWSummaryRenewalTotal_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_UWSummaryRenewal_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_UWSummaryTotalForecastTotal_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database\USP_UWSummaryTotalForecast_Result.cs">
+      <DependentUpon>TrackingReportingServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Implementation\TrackerReportingEnterpriseIntegrationRepository.cs" />
+    <Compile Include="Data\Implementation\TrackerReportingRepository.cs" />
+    <Compile Include="Data\Interfaces\ITrackerReportingEnterpriseIntegrationRepository.cs" />
+    <Compile Include="Data\Interfaces\ITrackerReportingRepository.cs" />
+    <Compile Include="ExcelCommon\ExcelCommon.cs" />
+    <Compile Include="Facade\Implementation\TrackerReportingEnterpriseIntegrationFacade.cs" />
+    <Compile Include="Facade\Implementation\TrackerReportingFacade.cs" />
+    <Compile Include="Facade\Interfaces\ITrackerReportingEnterpriseIntegrationFacade.cs" />
+    <Compile Include="Facade\Interfaces\ITrackerReportingFacade.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="PDFCommon\PDFCommon.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Data\Database\TrackingReportingServiceEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TrackingReportingServiceEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Data\Database\TrackingReportingServiceEntities.edmx.diagram">
+      <DependentUpon>TrackingReportingServiceEntities.edmx</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Chubb.Tracker.TrackerReportingService.ruleset" />
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile10.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile11.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile12.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile13.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile14.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile15.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile16.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile17.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile18.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile19.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile2.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile20.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile21.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile22.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile23.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile24.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile25.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile26.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile27.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile28.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile29.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile3.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile30.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile31.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile4.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile5.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile6.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile7.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile8.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile9.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Web_DEV.config" />
+    <Content Include="Web_TEST.config" />
+    <Content Include="Web_UAT.config" />
+    <Content Include="Web_PROD.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Chubb.Tracker.EnterpriseIntegration\Chubb.Tracker.EnterpriseIntegration.csproj">
+      <Project>{8e156e96-9074-413e-97b1-d9df17fd0d24}</Project>
+      <Name>Chubb.Tracker.EnterpriseIntegration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chubb.Tracker.Framework\Chubb.Tracker.Framework.csproj">
+      <Project>{9d20aa5a-25d7-4be2-877f-21b65db9386b}</Project>
+      <Name>Chubb.Tracker.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chubb.Tracker.ServiceModel\Chubb.Tracker.ServiceModel.csproj">
+      <Project>{3589a3ba-c3d3-426a-a519-2ef819c0a606}</Project>
+      <Name>Chubb.Tracker.ServiceModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54306</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:57700/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

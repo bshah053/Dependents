@@ -1,0 +1,64 @@
+schema_version: 1.0
+ 
+app: 
+  code: 'tracker-service-layer-Chubb.Tracker.TrackerReportingService'
+  name: 'tracker-service-layer-Chubb.Tracker.TrackerReportingService'
+  version: 1.0
+
+artifacts:   
+  name: Chubb.Tracker.TrackerReportingService.Setup
+  ext: msi
+  
+notification_users:
+  #- NADeployServices@Chubb.com
+  - nithya.srinivasan@chubb.com
+ 
+release: 'build_deploy' 
+
+pipeline:
+  - type: artifact_repo
+    name: nexus
+    template: pipeline_info
+    status: enabled
+  - type: continous_builder
+    name: jenkins
+    template: pipeline_info
+    status: enabled
+  - type: static_code_analyzer
+    name: sonarqube
+    template: pipeline_info
+    status: enabled
+    
+jenkins_extra_params:
+  override_slave_label: '.NET-SSDT-LABEL'
+  pipeline_branch: sit
+  props_branch: sit
+
+build_tool: #build tool
+  name: msbuild #msbuild, dotnet, maven
+  version: ^1 #Future Update
+  arguments: Release
+  
+multibranch_script_id : Scalable-Jenkinsfile  # sit Jenkins script ID
+sandbox_enable : true
+
+exclude_branches:    # this is referred as what branches exclude to scan in multibranch pipeline
+  - googleanalytics
+  - TrackerServiceLayer_202004
+  - dev
+  - TrackerServiceLayer*
+  - sit
+  - master
+  - master*
+  - prodfix
+  - main
+  - app*
+  - Backup
+  - uat  
+  - dev-staging
+  - dev-staging_*
+discover_strategy:
+  branches: 3
+  origin_pullrequests: 1 
+  fork_pullrequests: 1  
+#commit: 1    
